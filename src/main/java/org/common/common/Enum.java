@@ -5,6 +5,7 @@ import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
 import java.lang.annotation.*;
+import java.util.Arrays;
 
 @Documented
 @Constraint(validatedBy = {EnumValueValidator.class})
@@ -26,6 +27,16 @@ public @interface Enum {
         public String getValue() {
             return value;
         }
+    }
+
+    enum MINOR_MAJOR {
+        MINOR("MINOR"),
+        MAJOR("MAJOR");
+        private final String value;
+        MINOR_MAJOR(String value) {this.value=value;}
+        public String getValue() {return value;}
+
+
     }
 
     String message() default "Invalid value!";
